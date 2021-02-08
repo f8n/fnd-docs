@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Foundation Docs',
-  tagline: 'Foundation is building a new creative economy on top of the Ethereum network. Our infrastructure is open, permissionless and transparent.',
+  tagline: 'Foundation is building a new creative economy on top of the Ethereum network. Our infrastructure is open, permissionless, and transparent.',
   url: 'https://fnd.dev',
   baseUrl: '/',
   onBrokenLinks: 'throw',
