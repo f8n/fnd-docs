@@ -23,7 +23,7 @@ All of the data related to Foundation is public, and you can build your own UI w
 #### Request
 ```graphql
 {
-  nftMarketAuctions (where:{ status:Open, initialBid_not: null }, first:3) {
+  nftMarketAuctions (where:{ status:Open, initialBid_not: null }, first:1) {
     auctionId
     nft {
       tokenId
@@ -60,7 +60,7 @@ All of the data related to Foundation is public, and you can build your own UI w
         "dateCreated": "1612471174",
         "dateEnding": "1613036477",
         "dateFinalized": null,
-        "dateStarted": null,
+        "dateStarted": "1612950077",
         "highestBid": {
           "amountInETH": "0.5",
           "bidder": {
@@ -78,54 +78,6 @@ All of the data related to Foundation is public, and you can build your own UI w
           "tokenId": "118"
         },
         "reservePriceInETH": "0.5"
-      },
-      {
-        "auctionId": "11",
-        "dateCreated": "1611512203",
-        "dateEnding": "1613017781",
-        "dateFinalized": null,
-        "dateStarted": null,
-        "highestBid": {
-          "amountInETH": "0.58",
-          "bidder": {
-            "id": "0x3b0aa499cc6acde1d4a7433da6968d7bb8bd8509"
-          }
-        },
-        "initialBid": {
-          "amountInETH": "0.58",
-          "bidder": {
-            "id": "0x3b0aa499cc6acde1d4a7433da6968d7bb8bd8509"
-          }
-        },
-        "nft": {
-          "tokenIPFSPath": "QmVXBuCGCVPxBx3dsbSYmancTS3hg6qjw1ahNQRtyj5k2Q/metadata.json",
-          "tokenId": "17"
-        },
-        "reservePriceInETH": "0.58"
-      },
-      {
-        "auctionId": "120",
-        "dateCreated": "1612562034",
-        "dateEnding": "1613025108",
-        "dateFinalized": null,
-        "dateStarted": null,
-        "highestBid": {
-          "amountInETH": "1",
-          "bidder": {
-            "id": "0xe4e401c47cf997fe0048928df6b8ccc407a47aa7"
-          }
-        },
-        "initialBid": {
-          "amountInETH": "1",
-          "bidder": {
-            "id": "0xe4e401c47cf997fe0048928df6b8ccc407a47aa7"
-          }
-        },
-        "nft": {
-          "tokenIPFSPath": "QmUW6XArUq39sweQMqaZAHQrjpy8rpKxQtbeLvg9gsF3ZN/metadata.json",
-          "tokenId": "133"
-        },
-        "reservePriceInETH": "0.3"
       }
     ]
   }
