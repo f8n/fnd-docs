@@ -1,7 +1,7 @@
 ---
-id: NFTE
-title: NFTE
-sidebar_label: NFTE
+id: nfte
+title: Embedding NFTs
+sidebar_label: Embedding NFTs
 slug: /
 ---
 
