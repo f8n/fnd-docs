@@ -1,5 +1,5 @@
 module.exports = {
   someSidebar: {
-    Foundation: ['home'],
+    Foundation: ['home', 'nfte'],
   },
 };
