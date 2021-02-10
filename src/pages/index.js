@@ -15,6 +15,7 @@ const features = [
         An index of all Foundation market data and information, that is easily accessible via a GraphQL API.
       </>
     ),
+    linkUrl: 'docs/#subgraphs'
   },
   {
     title: 'contracts',
@@ -24,6 +25,7 @@ const features = [
         Foundation’s smart contracts which are deployed to the Ethereum blockchain.
       </>
     ),
+    linkUrl: 'docs/#contracts'
   },
   {
     title: 'npm package',
@@ -33,21 +35,27 @@ const features = [
         A software development kit giving you everything you need to start building experiences on top of Foundation.
       </>
     ),
+    linkUrl: ''
   },
 ];
 
-function Feature({imageUrl, title, description}) {
+function Feature({imageUrl, title, description, linkUrl}) {
   const imgUrl = useBaseUrl(imageUrl);
+  // TODO: Add 'coming soon' label conditional on title
+  // for contracts and npm package for now
   return (
-    <div className={clsx('col col--4', styles.feature)}>
-      {imgUrl && (
-        <div className="text--center">
-          <img className={styles.featureImage} src={imgUrl} alt={title} />
-        </div>
-      )}
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </div>
+      <div className={clsx('col col--4', styles.feature)}>
+            <Link to={useBaseUrl(linkUrl)}>
+
+        {imgUrl && (
+          <div className="text--center">
+            <img className={styles.featureImage} src={imgUrl} alt={title} />
+          </div>
+        )}
+        <h3>{title}</h3>
+        <p>{description}</p>
+        </Link>
+      </div>
   );
 }
 
