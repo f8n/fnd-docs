@@ -1,19 +1,17 @@
 ---
-id: home
-title: Docs
-sidebar_label: Docs
-slug: /
+id: subgraphs
+title: Subgraphs
+sidebar_label: Subgraphs
+slug: /subgraphs
 ---
 
----
+All of the data from the Foundation protocol is public and free to use.
 
-# Subgraphs
+You can build your own UI with whatever features you would like using the same data, and even if the company working on building Foundation were to cease to exist, that data will live on and your app will continue to function.
 
-All of the data related to Foundation is public, and you can build your own UI with whatever features you would like.
+Our [mainnet subgraph](https://thegraph.com/explorer/subgraph/f8n/f8n-mainnet) contains all the info you can find on [foundation.app](https://foundation.app). (We use it too!)
 
-[Mainnet](https://thegraph.com/explorer/subgraph/f8n/f8n-mainnet)
-
-[Goerli](https://thegraph.com/explorer/subgraph/f8n/f8n-goerli)
+Our [goerli subgraph](https://thegraph.com/explorer/subgraph/f8n/f8n-goerli) points to the Goerli testnet - the data you'll find there contains a lot of junk, but it serves as a good testing ground.
 
 
 ## Example queries
@@ -83,15 +81,3 @@ All of the data related to Foundation is public, and you can build your own UI w
   }
 }
 ```
-
----
-
-## Contracts
-
-### NFT contract
-[Foundation NFT Contract](https://etherscan.io/token/0x3B3ee1931Dc30C1957379FAc9aba94D1C48a5405)
-
-Our contract implements the ERC721 standard. More info [here](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/).
-
-### Marketplace contract
-[Foundation Market Contract](https://etherscan.io/address/0xcDA72070E455bb31C7690a170224Ce43623d0B6f)
