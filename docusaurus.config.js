@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'Foundation Docs',
-  tagline: 'Foundation is building a new creative economy on top of the Ethereum network. Our infrastructure is open, permissionless, and transparent.',
+  title: 'Foundation',
+  tagline: 'Help us build a new creative economy on the Ethereum network. The infrastructure is open, permissionless, and transparent.',
   url: 'https://fnd.dev',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -29,47 +29,47 @@ module.exports = {
       ],
     },
     footer: {
-      links: [
-        {
-          title: 'Foundation',
-          items: [
-            {
-              label: 'Docs',
-              to: 'docs/',
-            },
-          ],
-        },
-        {
-          title: 'Connect',
-          items: [
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/withFND',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discord.foundation.app',
-            },
-            {
-              label: 'Instagram',
-              href: 'https://www.instagram.com/withfoundation/',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: 'https://foundation.app/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/f8n',
-            },
-          ],
-        },
-      ],
+      // links: [
+      //   {
+      //     title: 'Foundation',
+      //     items: [
+      //       {
+      //         label: 'Docs',
+      //         to: 'docs/',
+      //       },
+      //     ],
+      //   },
+      //   {
+      //     title: 'Connect',
+      //     items: [
+      //       {
+      //         label: 'Twitter',
+      //         href: 'https://twitter.com/withFND',
+      //       },
+      //       {
+      //         label: 'Discord',
+      //         href: 'https://discord.foundation.app',
+      //       },
+      //       {
+      //         label: 'Instagram',
+      //         href: 'https://www.instagram.com/withfoundation/',
+      //       },
+      //     ],
+      //   },
+      //   {
+      //     title: 'More',
+      //     items: [
+      //       {
+      //         label: 'Blog',
+      //         to: 'https://foundation.app/blog',
+      //       },
+      //       {
+      //         label: 'GitHub',
+      //         href: 'https://github.com/f8n',
+      //       },
+      //     ],
+      //   },
+      // ],
       copyright: `Copyright © ${new Date().getFullYear()} Foundation Labs, Inc.`,
     },
   },

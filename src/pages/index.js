@@ -8,31 +8,31 @@ import styles from './styles.module.css';
 
 const features = [
   {
-    title: 'subgraph',
+    title: 'subgraphs',
     imageUrl: 'img/triangle.svg',
     description: (
       <>
-        An index of all Foundation market data and information, that is easily accessible via a GraphQL API.
+        An index of all Foundation market data and information that is easily accessible via a GraphQL API.
       </>
     ),
-    linkUrl: 'docs/#subgraphs'
+    linkUrl: 'docs/subgraphs'
   },
   {
     title: 'contracts',
     imageUrl: 'img/circle.svg',
     description: (
       <>
-        Foundation’s smart contracts which are deployed to the Ethereum blockchain.
+        Foundation’s smart contracts on the Ethereum blockchain.
       </>
     ),
-    linkUrl: 'docs/#contracts'
+    linkUrl: 'docs/contracts'
   },
   {
     title: 'npm package',
     imageUrl: 'img/square.svg',
     description: (
       <>
-        A software development kit giving you everything you need to start building experiences on top of Foundation.
+        A lightweight package giving you everything you need to start building experiences on top of Foundation.
       </>
     ),
     linkUrl: ''
@@ -64,11 +64,11 @@ function Home() {
   const {siteConfig = {}} = context;
   return (
     <Layout
-      title={`${siteConfig.title}`}
+      title={`Docs Home`}
       description="Foundation Docs">
       <header className={clsx('hero')}>
         <div className="container">
-          <h1 className="hero__title">Foundation is creating the building blocks of the new creative economy.</h1>
+          <h1 className="hero__title">Our community is creating the building blocks of the new creative economy. Join us.</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
           <div className={styles.buttons}>
             <Link
@@ -77,10 +77,10 @@ function Home() {
                 styles.getStarted,
               )}
               to={useBaseUrl('docs/')}>
-              Get Started
+              get started
             </Link>
           </div>
-        </div>
+        </div> 
       </header>
       <main>
         {features && features.length > 0 && (
