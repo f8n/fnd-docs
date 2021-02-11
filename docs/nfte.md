@@ -5,8 +5,9 @@ sidebar_label: Embedding NFTs
 slug: /embedding
 ---
 
-** Note: This page contains info about a 3rd-party library that works equally well with Foundation NFTs and those from other NFT platforms. More info here: [nfte.app](https://nfte.app/)
-**
+:::info
+This page contains info about a 3rd-party library that works equally well with Foundation NFTs and those from other NFT platforms. More info here: [nfte.app](https://nfte.app/)
+:::
 
 ## npm package
 
