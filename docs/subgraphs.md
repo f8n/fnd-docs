@@ -63,52 +63,69 @@ The current owner of this NFT
 owner: Account!
 ```
 
-If there's data you need that's not easily accessible for queryable, just let us know!
+If there's data you need that's not easily accessible or queryable, just let us know!
 
-At a high-level here is the data we store today:
+At a high level here is the data we store today:
 
-### Account
+### User-related info
 
-Every address that interacts with Foundation has an associated Account entity.
+#### Account
 
-### Creator
+Every address that interacts with Foundation has an associated `Account` entity.
 
-Creators include any account that has minted on our platform.
+#### Creator
 
-### NftContract
+Creators includes any account that has minted an NFT on our platform.
+
+### NFT-related info
+
+#### NftContract
 
 This entity holds any information that's common to all NFTs minted on Foundation.
 
-### Nft
+#### Nft
 
-Each individual NFT minted on Foundation. Note that NFT metadata such as name and description are not currently supported on subgraph -- in order to read this information you can read the metadata JSON from `https://ipfs.io/ipfs/${nft.tokenIPFSPath}`. e.g. https://ipfs.io/ipfs/QmcsepfMDFh2udUQWtvcnZeARNFFCPA1n2WRWUH1ysWv4W/metadata.json returns
+Each individual NFT minted on Foundation. Note that NFT metadata such as name and description are not currently supported on our subgraph—in order to read this information you can read the metadata JSON from `https://ipfs.io/ipfs/${nft.tokenIPFSPath}`.
+
+For example,
+
+https://ipfs.io/ipfs/QmcsepfMDFh2udUQWtvcnZeARNFFCPA1n2WRWUH1ysWv4W/metadata.json
+
+...returns:
 
 ```json
 {
   "name":"Ancient Future",
   "description":"Here at the nexus of infinity, we inscribe ourselves upon the sacred discs. For We are the Ancients of a Future Civilization. \n\nSingle Edition VHS Text Art by Sarah Zucker, 2020. Created in studio with Hi8 Camcorder Title Feedback, digital animation and analog processing on VHS. Filmed in 4K from vintage CRT TV screen.\n",
-  "image":"ipfs://ipfs/QmXRmfvvenqr4eJ62vjxvYqc5eWp6i2MjpkTh9VZcLiuTi/nft.mp4"}
+  "image":"ipfs://ipfs/QmXRmfvvenqr4eJ62vjxvYqc5eWp6i2MjpkTh9VZcLiuTi/nft.mp4"
+}
 ```
 
-And the image for this NFT can be retrieved from https://ipfs.io/ipfs/QmXRmfvvenqr4eJ62vjxvYqc5eWp6i2MjpkTh9VZcLiuTi/nft.mp4
+And the image for this NFT can be retrieved from here, using the data contained in the value for the `image` key above:
 
-### NftTransfer
+https://ipfs.io/ipfs/QmXRmfvvenqr4eJ62vjxvYqc5eWp6i2MjpkTh9VZcLiuTi/nft.mp4
 
-Every transfer event for NFTs minted on Foundation.
+Even if it's a video, the key to use is `image`.
 
-### NftAccountApproval
+#### NftTransfer
 
-Tracks account level approvals granted. For token specific approvals, see `nft.approvedSpender`.
+Data about every transfer event for NFTs minted on Foundation.
 
-### NftMarketContract
+### Market-related info
+
+#### NftAccountApproval
+
+Tracks account-level approvals granted. For token specific approvals, see `nft.approvedSpender`.
+
+#### NftMarketContract
 
 Configuration that applies to all auctions listed on Foundation.
 
-### NftMarketAuction
+#### NftMarketAuction
 
-Each individual auction listed on Foundation. If an auction is re-listed (after a sale or after unlisting by the seller), it will appear as a new unique auction in this table.
+Each individual auction listed on Foundation. If an auction is re-listed (after a sale or after unlisting by the seller), it will appear as a new unique auction.
 
-### NftMarketBid
+#### NftMarketBid
 
 All individual bids placed on Foundation.
 
@@ -116,17 +133,21 @@ All individual bids placed on Foundation.
 
 Currently the only auction model we support is Reserve Auctions. More will be added in the future.
 
-When an NFT is initially listed, it is `nftMarketAuction.status=Open` with `nftMarketAuction.highestBid=null`.
+When an NFT is initially listed, it's state in our subgraph will be `nftMarketAuction.status=Open` with `nftMarketAuction.highestBid=null`.
 
 Once the reserve price is met, `nftMarketAuction.highestBid!=null`.
 
 Anyone can place bids on auctions until the end time has passed. So `nftMarketAuction.status=Open and nftMarketAuction.dateEnding<=nowInSeconds` means an auction is accepting bids and `nftMarketAuction.status=Open and nftMarketAuction.dateEnding>nowInSeconds` indicates that the auction countdown has completed and bids are no longer being accepted.
 
-Since Ethereum requires a user initiated transaction in order to react to the changing of time, user's must claim their NFT after an auction has closed. Technically anyone can do this but we encourage the bidder to do so (and will allow sellers to complete the process as well). Once the NFT has been claimed, the auction status changes to `nftMarketAuction.status=Finalized`. Finalized indicates that the NFT has been transferred to the auction winner and the seller has received funds from the sale.
+Since Ethereum requires a user-initiated transaction in order to react to the changing of time, users must claim their NFT after an auction has closed. Technically anyone can do this, but through our UI we encourage the bidder to do so (and our UI will allow sellers to complete the process as well). But it's on Ethereum, so anyone is free to do it if they please.
+
+Once the NFT has been claimed, the auction status changes to `nftMarketAuction.status=Finalized`. `Finalized` indicates that the NFT has been transferred to the auction winner and the seller has received funds from the sale.
 
 ## Example queries
 
-We recommend [Insomnia](https://insomnia.rest/) for testing queries. `POST` a `GraphQL` request to `https://api.thegraph.com/subgraphs/name/f8n/f8n-mainnet`.
+We recommend using [Insomnia](https://insomnia.rest/) or The Graph's website for testing queries.
+
+When using Insomnia, you can `POST` a `GraphQL` request to `https://api.thegraph.com/subgraphs/name/f8n/f8n-mainnet`.
 
 ### Auctions that have not received a bid
 
@@ -268,6 +289,6 @@ query getNftsByCreator($creator: String!) {
 }
 ```
 
-## Contact Us
+## Contact us
 
-[Join our Discord](https://discord.foundation.app/) if you have any questions or suggestions. We are always looking to improve our subgraph to make other applications even easier to build!
+[Join our Discord](https://discord.foundation.app/) if you have any questions or suggestions. We are always looking to improve our subgraph to make 3rd-party applications even easier to build!
