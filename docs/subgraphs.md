@@ -129,7 +129,7 @@ Returns:
         },
         "reservePriceInETH": "0.2"
       },
-      ...
+      // ...
     ]
   }
 }
@@ -171,7 +171,7 @@ Returns:
         },
         "reservePriceInETH": "0.37"
       },
-      ...
+      // ...
     ]
   }
 }
@@ -224,7 +224,7 @@ Returns:
           },
           "tokenId": "120"
         },
-        ...
+        // ...
       ]
     }
   }
