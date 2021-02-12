@@ -9,10 +9,44 @@ All of the data from the Foundation protocol is public and free to use.
 
 You can build your own UI with whatever features you would like using the same data, and even if the company working on building Foundation were to cease to exist, that data will live on and your app will continue to function.
 
+🌐 [mainnet subgraph](https://thegraph.com/explorer/subgraph/f8n/f8n-mainnet) 🌐
+
+🌐 [goerli subgraph](https://thegraph.com/explorer/subgraph/f8n/f8n-goerli) 🌐
+
 Our [mainnet subgraph](https://thegraph.com/explorer/subgraph/f8n/f8n-mainnet) contains all the info you can find on [foundation.app](https://foundation.app). (We use it too!)
 
 Our [goerli subgraph](https://thegraph.com/explorer/subgraph/f8n/f8n-goerli) points to the Goerli testnet - the data you'll find there contains a lot of junk, but it serves as a good testing ground.
 
+## Getting started
+
+Here's an example query using our subgraph:
+
+#### Query
+```graphql
+{
+  nfts(where: {tokenId: "1" }) {
+    owner {
+      id
+    }
+  }
+}
+```
+
+#### Result
+
+```json
+{
+  "data": {
+    "nfts": [
+      {
+        "owner": {
+          "id": "0xcf0949bf6d2adf8032260fd08039c879cf71c128"
+        }
+      }
+    ]
+  }
+}
+```
 
 ## Table structure
 
@@ -39,7 +73,7 @@ Every address that interacts with Foundation has an associated Account entity.
 
 ### Creator
 
-Creators include any account which has minted on our platform.
+Creators include any account that has minted on our platform.
 
 ### NftContract
 
@@ -94,8 +128,9 @@ Since Ethereum requires a user initiated transaction in order to react to the ch
 
 We recommend [Insomnia](https://insomnia.rest/) for testing queries. `POST` a `GraphQL` request to `https://api.thegraph.com/subgraphs/name/f8n/f8n-mainnet`.
 
-### Auctions which have not received a bid
+### Auctions that have not received a bid
 
+#### Query
 ```graphql
 query getAuctionsWithoutABid {
     nftMarketAuctions(
@@ -110,7 +145,7 @@ query getAuctionsWithoutABid {
 }
 ```
 
-Returns:
+#### Result
 ```json
 {
   "data": {
@@ -135,8 +170,9 @@ Returns:
 }
 ```
 
-### Auctions which are currently counting down
+### Auctions that are currently counting down
 
+#### Query
 ```graphql
 query getAuctionsInProgress($nowInSeconds: BigInt!) {
     nftMarketAuctions(
@@ -151,7 +187,7 @@ query getAuctionsInProgress($nowInSeconds: BigInt!) {
 }
 ```
 
-Returns:
+#### Result
 
 ```json
 {
@@ -179,6 +215,7 @@ Returns:
 
 ### NFTs and their auctions by a specific creator
 
+#### Query
 ```graphql
 query getNftsByCreator($creator: String!) {
     creator(id: $creator) {
@@ -197,7 +234,7 @@ query getNftsByCreator($creator: String!) {
 }
 ```
 
-Returns:
+#### Result
 
 ```json
 {
