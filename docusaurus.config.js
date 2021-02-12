@@ -1,30 +1,33 @@
+const path = require("path");
+
 module.exports = {
-  title: 'Foundation',
-  tagline: 'Help us build a new creative economy on the Ethereum network. The infrastructure is open, permissionless, and transparent.',
-  url: 'https://fnd.dev',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/fnd.svg',
-  organizationName: 'f8n', // Your GitHub org name.
-  projectName: 'f8n-contracts', // Your repo name.
+  title: "Foundation",
+  tagline:
+    "Help us build a new creative economy on the Ethereum network. The infrastructure is open, permissionless, and transparent.",
+  url: "https://fnd.dev",
+  baseUrl: "/",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
+  favicon: "img/fnd.svg",
+  organizationName: "f8n", // Your GitHub org name.
+  projectName: "f8n-contracts", // Your repo name.
   themeConfig: {
     navbar: {
       logo: {
-        alt: 'Foundation Logo',
-        src: 'img/fnd.svg',
+        alt: "Foundation Logo",
+        src: "img/fnd.svg",
       },
       items: [
         {
-          to: 'docs/',
-          activeBasePath: 'docs',
-          label: 'Docs',
-          position: 'left',
+          to: "docs/",
+          activeBasePath: "docs",
+          label: "Docs",
+          position: "left",
         },
         {
-          href: 'https://github.com/f8n',
-          label: 'GitHub',
-          position: 'right',
+          href: "https://github.com/f8n",
+          label: "GitHub",
+          position: "right",
         },
       ],
     },
@@ -75,18 +78,18 @@ module.exports = {
   },
   presets: [
     [
-      '@docusaurus/preset-classic',
+      "@docusaurus/preset-classic",
       {
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
-          editUrl:
-            'https://github.com/f8n/f8n-docs/edit/main/',
+          editUrl: "https://github.com/f8n/f8n-docs/edit/main/",
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
       },
     ],
   ],
+  plugins: [path.resolve(__dirname, "fonts-plugin")],
 };
