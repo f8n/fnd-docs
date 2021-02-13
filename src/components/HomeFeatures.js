@@ -7,7 +7,7 @@ import BlockLink from "./BlockLink";
 const features = [
   {
     title: "subgraphs",
-    imageUrl: "/static/img/triangle.svg",
+    imageUrl: "/img/triangle.svg",
     description: (
       <>
         An index of all Foundation market data and information that is easily
@@ -18,13 +18,13 @@ const features = [
   },
   {
     title: "contracts",
-    imageUrl: "/static/img/circle.svg",
+    imageUrl: "/img/circle.svg",
     description: <>Foundation’s smart contracts on the Ethereum blockchain.</>,
     linkUrl: "docs/contracts",
   },
   {
     title: "npm package",
-    imageUrl: "/static/img/square.svg",
+    imageUrl: "/img/square.svg",
     description: (
       <>
         A lightweight package giving you everything you need to start building

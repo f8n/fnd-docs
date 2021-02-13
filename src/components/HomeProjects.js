@@ -7,7 +7,7 @@ const projects = [
     title: "Terminal_",
     description:
       "A third party explorer of Foundation’s data. Culture’s bloomberg terminal.",
-    imageUrl: "/static/img/terminal.jpg",
+    imageUrl: "/img/terminal.jpg",
     externalUrl: "http://fnd.info",
     label: "fnd.info ↗",
   },
@@ -15,14 +15,14 @@ const projects = [
     title: "Showtime",
     description:
       "Showcase your Foundation NFTs alongside other NFT collections.",
-    imageUrl: "/static/img/showtime.jpg",
+    imageUrl: "/img/showtime.jpg",
     externalUrl: "http://alpha.tryshowtime.com",
     label: "alpha.tryshowtime.com ↗",
   },
   {
     title: "NFTE",
     description: "Easily embed Foundation NFTs on a website via HTML or React.",
-    imageUrl: "/static/img/nfte.jpg",
+    imageUrl: "/img/nfte.jpg",
     externalUrl: "http://nfte.app",
     label: "nfte.app ↗",
   },
