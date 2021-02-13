@@ -91,5 +91,4 @@ module.exports = {
       },
     ],
   ],
-  plugins: [path.resolve(__dirname, "fonts-plugin")],
 };

@@ -14,8 +14,10 @@
   "dependencies": {
     "@docusaurus/core": "2.0.0-alpha.70",
     "@docusaurus/preset-classic": "2.0.0-alpha.70",
+    "@emotion/react": "^11.1.5",
     "@mdx-js/react": "^1.6.21",
     "clsx": "^1.1.1",
+    "minireset.css": "^0.0.7",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "theme-ui": "^0.3.5"
