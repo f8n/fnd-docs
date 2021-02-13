@@ -25,6 +25,24 @@ function Home() {
             .footer {
               display: none;
             }
+
+            @font-face {
+              font-family: "Formular Mono";
+              src: url("/static/fonts/FormularMono.woff2") format("woff2"),
+                url("/static/fonts/FormularMono.woff") format("woff");
+              font-weight: 400;
+              font-style: normal;
+              font-display: swap;
+            }
+
+            @font-face {
+              font-family: "Roobert";
+              src: url("/static/fonts/Roobert-SemiBold.woff2") format("woff2"),
+                url("/static/fonts/Roobert-SemiBold.woff") format("woff");
+              font-weight: 600;
+              font-style: normal;
+              font-display: swap;
+            }
           `}
         />
         <Layout title="fnd.dev" description="Foundation Docs">
