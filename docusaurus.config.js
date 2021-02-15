@@ -25,6 +25,11 @@ module.exports = {
           position: "left",
         },
         {
+          to: "https://discord.foundation.app",
+          label: "Discord",
+          position: "left",
+        },
+        {
           href: "https://github.com/f8n",
           label: "GitHub",
           position: "right",

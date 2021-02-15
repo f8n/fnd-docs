@@ -23,7 +23,7 @@ const features = [
     linkUrl: "docs/contracts",
   },
   {
-    title: "npm package",
+    title: "fnd.js",
     imageUrl: "/img/square.svg",
     description: (
       <>
@@ -31,7 +31,7 @@ const features = [
         experiences on top of Foundation.
       </>
     ),
-    linkUrl: "",
+    linkUrl: "docs/fnd.js",
   },
 ];
 
