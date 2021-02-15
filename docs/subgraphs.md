@@ -52,16 +52,7 @@ Here's an example query using the Foundation subgraph:
 
 Each of the fields in the Foundation subgraph includes a brief comment you can see on the dashboard to explain the data it holds. We aim to cross-link between entities where possible. e.g.:
 
-```
-The date/time when this NFT was minted in seconds since Unix epoch
-dateMinted: BigInt!
-
-The transfer details where this NFT was minted
-mintedTransfer: NftTransfer
-
-The current owner of this NFT
-owner: Account!
-```
+<img alt="Subgraph schema" src="/static/img/schema.png" />
 
 If there's data you need that's not easily accessible or queryable, just let us know!
 

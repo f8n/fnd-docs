@@ -5,6 +5,8 @@ sidebar_label: Contracts
 slug: /contracts
 ---
 
+Verification coming soon. Open sourcing coming soon.
+
 ### NFT
 
 Here's a link to the [Foundation NFT contract](https://etherscan.io/token/0x3B3ee1931Dc30C1957379FAc9aba94D1C48a5405) on Etherscan.
