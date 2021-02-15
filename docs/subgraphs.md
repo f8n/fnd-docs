@@ -7,19 +7,19 @@ slug: /subgraphs
 
 All of the data from the Foundation protocol is public and free to use.
 
-You can build your own UI with whatever features you would like using the same data, and even if the company working on building Foundation were to cease to exist, that data will live on and your app will continue to function.
+You can build your own UI with whatever features you would like using the same data.
 
-🌐 [mainnet subgraph](https://thegraph.com/explorer/subgraph/f8n/f8n-mainnet) 🌐
+### 🌐 [mainnet subgraph](https://thegraph.com/explorer/subgraph/f8n/f8n-mainnet) 🌐
 
-🌐 [goerli subgraph](https://thegraph.com/explorer/subgraph/f8n/f8n-goerli) 🌐
+Our mainnet subgraph contains all the info you can find on [foundation.app](https://foundation.app). (We use it too!)
 
-Our [mainnet subgraph](https://thegraph.com/explorer/subgraph/f8n/f8n-mainnet) contains all the info you can find on [foundation.app](https://foundation.app). (We use it too!)
+### 🚧 [goerli subgraph](https://thegraph.com/explorer/subgraph/f8n/f8n-goerli) 🚧
 
-Our [goerli subgraph](https://thegraph.com/explorer/subgraph/f8n/f8n-goerli) points to the Goerli testnet - the data you'll find there contains a lot of junk, but it serves as a good testing ground.
+Our goerli subgraph points to the Goerli testnet - the data you'll find there contains a lot of junk, but it serves as a good testing ground.
 
 ## Getting started
 
-Here's an example query using our subgraph:
+Here's an example query using the Foundation subgraph:
 
 #### Query
 ```graphql
@@ -50,7 +50,7 @@ Here's an example query using our subgraph:
 
 ## Table structure
 
-Each of the fields in our subgraph includes a brief comment you can see on the dashboard to explain the data it holds. We aim to cross-link between entities where possible. e.g.:
+Each of the fields in the Foundation subgraph includes a brief comment you can see on the dashboard to explain the data it holds. We aim to cross-link between entities where possible. e.g.:
 
 ```
 The date/time when this NFT was minted in seconds since Unix epoch
@@ -75,7 +75,7 @@ Every address that interacts with Foundation has an associated `Account` entity.
 
 #### Creator
 
-Creators includes any account that has minted an NFT on our platform.
+Creators includes any account that has minted an NFT on the Foundation platform.
 
 ### NFT-related info
 
@@ -85,7 +85,7 @@ This entity holds any information that's common to all NFTs minted on Foundation
 
 #### Nft
 
-Each individual NFT minted on Foundation. Note that NFT metadata such as name and description are not currently supported on our subgraph—in order to read this information you can read the metadata JSON from `https://ipfs.io/ipfs/${nft.tokenIPFSPath}`.
+Each individual NFT minted on Foundation. Note that NFT metadata such as name and description are not currently supported on the Foundation subgraph—in order to read this information you can read the metadata JSON from `https://ipfs.io/ipfs/${nft.tokenIPFSPath}`.
 
 For example,
 
@@ -133,13 +133,13 @@ All individual bids placed on Foundation.
 
 Currently the only auction model we support is Reserve Auctions. More will be added in the future.
 
-When an NFT is initially listed, it's state in our subgraph will be `nftMarketAuction.status=Open` with `nftMarketAuction.highestBid=null`.
+When an NFT is initially listed, it's state in the Foundation subgraph will be `nftMarketAuction.status=Open` with `nftMarketAuction.highestBid=null`.
 
 Once the reserve price is met, `nftMarketAuction.highestBid!=null`.
 
 Anyone can place bids on auctions until the end time has passed. So `nftMarketAuction.status=Open and nftMarketAuction.dateEnding<=nowInSeconds` means an auction is accepting bids and `nftMarketAuction.status=Open and nftMarketAuction.dateEnding>nowInSeconds` indicates that the auction countdown has completed and bids are no longer being accepted.
 
-Since Ethereum requires a user-initiated transaction in order to react to the changing of time, users must claim their NFT after an auction has closed. Technically anyone can do this, but through our UI we encourage the bidder to do so (and our UI will allow sellers to complete the process as well). But it's on Ethereum, so anyone is free to do it if they please.
+Since Ethereum requires a user-initiated transaction in order to react to the changing of time, users must claim their NFT after an auction has closed. Technically anyone can do this, but through the foundation.app UI we encourage the bidder to do so (and the foundation.app UI will allow sellers to complete the process as well). But it's on Ethereum, so anyone is free to do it if they please.
 
 Once the NFT has been claimed, the auction status changes to `nftMarketAuction.status=Finalized`. `Finalized` indicates that the NFT has been transferred to the auction winner and the seller has received funds from the sale.
 
@@ -167,6 +167,7 @@ query getAuctionsWithoutABid {
 ```
 
 #### Result
+
 ```json
 {
   "data": {
@@ -194,6 +195,7 @@ query getAuctionsWithoutABid {
 ### Auctions that are currently counting down
 
 #### Query
+
 ```graphql
 query getAuctionsInProgress($nowInSeconds: BigInt!) {
     nftMarketAuctions(
@@ -237,9 +239,10 @@ query getAuctionsInProgress($nowInSeconds: BigInt!) {
 ### NFTs and their auctions by a specific creator
 
 #### Query
+
 ```graphql
 query getNftsByCreator($creator: String!) {
-    creator(id: $creator) {
+  creator(id: $creator) {
     nfts {
       tokenId
       mostRecentAuction {
@@ -288,7 +291,3 @@ query getNftsByCreator($creator: String!) {
   }
 }
 ```
-
-## Contact us
-
-[Join our Discord](https://discord.foundation.app/) if you have any questions or suggestions. We are always looking to improve our subgraph to make 3rd-party applications even easier to build!

@@ -9,7 +9,7 @@ export default function HomeQuestions() {
         <Heading>Any questions?</Heading>
         <Text sx={{ maxWidth: 500 }}>
           If you’re looking to build something on Foundation, make sure you join
-          our Discord and check out the devs section.
+          the Discord and check out the devs section.
         </Text>
         <ExternalLink
           href="https://discord.foundation.app/"

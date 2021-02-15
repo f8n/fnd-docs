@@ -11,7 +11,7 @@ Here's a link to the [Foundation NFT contract](https://etherscan.io/token/0x3B3e
 
 Our contract implements the ERC721 standard. More info [here](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/).
 
-Our NFT contract also includes an extra method that lets you (a person, a bot, or a contract) get the creator of the NFT. This means that the creators can be paid automatically when sales are made using our market contract.
+Our NFT contract also includes an extra method that lets you (a person, a bot, or a contract) get the creator of the NFT. This means that the creators can be paid automatically when sales are made using the Foundation market contract.
 
 ### Market
 
