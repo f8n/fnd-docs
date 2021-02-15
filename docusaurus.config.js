@@ -78,7 +78,7 @@ module.exports = {
       //     ],
       //   },
       // ],
-      copyright: `Copyright © ${new Date().getFullYear()} Foundation Labs, Inc.`,
+      copyright: `foundation.app`,
     },
   },
   presets: [
