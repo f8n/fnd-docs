@@ -45,6 +45,7 @@ export default function HomeFeatures() {
           sx={{
             position: "relative",
             pointerEvents: feature.linkUrl ? "all" : "none",
+            width: "100%",
           }}
         >
           {!feature.linkUrl && <ComingSoonTag />}
@@ -54,6 +55,7 @@ export default function HomeFeatures() {
             sx={{
               padding: 32,
               opacity: feature.linkUrl ? 1 : 0.6,
+              width: "100%",
             }}
           >
             <Grid gap={[24, null, 48]}>
