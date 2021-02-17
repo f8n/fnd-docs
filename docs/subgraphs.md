@@ -9,11 +9,11 @@ All of the data from the Foundation protocol is public and free to use.
 
 You can build your own UI with whatever features you would like using the same data.
 
-### 🌐 [mainnet subgraph](https://thegraph.com/explorer/subgraph/f8n/f8n-mainnet) 🌐
+### 🌐 [mainnet subgraph](https://thegraph.com/explorer/subgraph/f8n/fnd) 🌐
 
 Our mainnet subgraph contains all the info you can find on [foundation.app](https://foundation.app). (We use it too!)
 
-### 🚧 [goerli subgraph](https://thegraph.com/explorer/subgraph/f8n/f8n-goerli) 🚧
+### 🚧 [goerli subgraph](https://thegraph.com/explorer/subgraph/f8n/fnd-goerli) 🚧
 
 Our goerli subgraph points to the Goerli testnet - the data you'll find there contains a lot of junk, but it serves as a good testing ground.
 
@@ -138,7 +138,7 @@ Once the NFT has been claimed, the auction status changes to `nftMarketAuction.s
 
 We recommend using [Insomnia](https://insomnia.rest/) or The Graph's website for testing queries.
 
-When using Insomnia, you can `POST` a `GraphQL` request to `https://api.thegraph.com/subgraphs/name/f8n/f8n-mainnet`.
+When using Insomnia, you can `POST` a `GraphQL` request to `https://api.thegraph.com/subgraphs/name/f8n/fnd`.
 
 ### Auctions that have not received a bid
 
