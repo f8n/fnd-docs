@@ -37,6 +37,11 @@ import ExampleResult from './queries/example/result.mdx';
   <TabItem value="result"><ExampleResult/></TabItem>
 </Tabs>
 
+## Note
+
+:::note
+If you learn best by checking out examples, we recommend jumping ahead to the [examples](subgraphs-examples) section. If you learn better by starting with the fundamentals and building from there, please read on below.
+:::
 
 ## Table structure
 
@@ -50,21 +55,21 @@ At a high level here is the data we store today:
 
 ### User-related info
 
-#### Account
+#### **Account**
 
 Every address that interacts with Foundation has an associated `Account` entity.
 
-#### Creator
+#### **Creator**
 
 Creators includes any account that has minted an NFT on the Foundation platform.
 
 ### NFT-related info
 
-#### NftContract
+#### **NftContract**
 
 This entity holds any information that's common to all NFTs minted on Foundation.
 
-#### Nft
+#### **Nft**
 
 Each individual NFT minted on Foundation. Note that NFT metadata such as name and description are not currently supported on the Foundation subgraph—in order to read this information you can read the metadata JSON from `https://ipfs.io/ipfs/${nft.tokenIPFSPath}`.
 
@@ -88,25 +93,25 @@ https://ipfs.io/ipfs/QmXRmfvvenqr4eJ62vjxvYqc5eWp6i2MjpkTh9VZcLiuTi/nft.mp4
 
 Even if it's a video, the key to use is `image`.
 
-#### NftTransfer
+#### **NftTransfer**
 
 Data about every transfer event for NFTs minted on Foundation.
 
 ### Market-related info
 
-#### NftAccountApproval
+#### **NftAccountApproval**
 
 Tracks account-level approvals granted. For token specific approvals, see `nft.approvedSpender`.
 
-#### NftMarketContract
+#### **NftMarketContract**
 
 Configuration that applies to all auctions listed on Foundation.
 
-#### NftMarketAuction
+#### **NftMarketAuction**
 
 Each individual auction listed on Foundation. If an auction is re-listed (after a sale or after unlisting by the seller), it will appear as a new unique auction.
 
-#### NftMarketBid
+#### **NftMarketBid**
 
 All individual bids placed on Foundation.
 
@@ -123,55 +128,3 @@ Anyone can place bids on auctions until the end time has passed. So `nftMarketAu
 Since Ethereum requires a user-initiated transaction in order to react to the changing of time, users must claim their NFT after an auction has closed. Technically anyone can do this, but through the foundation.app UI we encourage the bidder to do so (and the foundation.app UI will allow sellers to complete the process as well). But it's on Ethereum, so anyone is free to do it if they please.
 
 Once the NFT has been claimed, the auction status changes to `nftMarketAuction.status=Finalized`. `Finalized` indicates that the NFT has been transferred to the auction winner and the seller has received funds from the sale.
-
-## Example queries
-
-We recommend using [Insomnia](https://insomnia.rest/) or The Graph's website for testing queries.
-
-When using Insomnia, you can `POST` a `GraphQL` request to `https://api.thegraph.com/subgraphs/name/f8n/fnd`.
-
-### Auctions that have not received a bid
-
-import AuctionsWithNoBidQuery from './queries/auctionsWithNoBid/query.mdx';
-import AuctionsWithNoBidResult from './queries/auctionsWithNoBid/result.mdx';
-
-<Tabs
-  defaultValue="query"
-  values={[
-    {label: 'Query', value: 'query'},
-    {label: 'Result', value: 'result'},
-  ]}>
-  <TabItem value="query"><AuctionsWithNoBidQuery/></TabItem>
-  <TabItem value="result"><AuctionsWithNoBidResult/></TabItem>
-</Tabs>
-
-### Auctions that are currently counting down
-
-import AuctionsCountingDownQuery from './queries/auctionsCountingDown/query.mdx';
-import AuctionsCountingDownResult from './queries/auctionsCountingDown/result.mdx';
-
-<Tabs
-  defaultValue="query"
-  values={[
-    {label: 'Query', value: 'query'},
-    {label: 'Result', value: 'result'},
-  ]}>
-  <TabItem value="query"><AuctionsCountingDownQuery/></TabItem>
-  <TabItem value="result"><AuctionsCountingDownResult/></TabItem>
-</Tabs>
-
-
-### NFTs and their auctions by a specific creator
-
-import NFTsAndAuctionsCountingDownQuery from './queries/nftsAndAuctionsByCreator/query.mdx';
-import NFTsAndAuctionsCountingDownResult from './queries/nftsAndAuctionsByCreator/result.mdx';
-
-<Tabs
-  defaultValue="query"
-  values={[
-    {label: 'Query', value: 'query'},
-    {label: 'Result', value: 'result'},
-  ]}>
-  <TabItem value="query"><NFTsAndAuctionsCountingDownQuery/></TabItem>
-  <TabItem value="result"><NFTsAndAuctionsCountingDownResult/></TabItem>
-</Tabs>

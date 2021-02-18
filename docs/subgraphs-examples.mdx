@@ -1,0 +1,59 @@
+---
+id: subgraphs-examples
+title: Subgraphs Examples
+sidebar_label: Subgraphs Examples
+slug: /subgraphs-examples
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+We recommend using [Insomnia](https://insomnia.rest/) or The Graph's website for testing queries.
+
+When using Insomnia, you can `POST` a `GraphQL` request to `https://api.thegraph.com/subgraphs/name/f8n/fnd`.
+
+## Auctions that have not received a bid
+
+import AuctionsWithNoBidQuery from './queries/auctionsWithNoBid/query.mdx';
+import AuctionsWithNoBidResult from './queries/auctionsWithNoBid/result.mdx';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'Query', value: 'query'},
+    {label: 'Result', value: 'result'},
+  ]}>
+  <TabItem value="query"><AuctionsWithNoBidQuery/></TabItem>
+  <TabItem value="result"><AuctionsWithNoBidResult/></TabItem>
+</Tabs>
+
+## Auctions that are currently counting down
+
+import AuctionsCountingDownQuery from './queries/auctionsCountingDown/query.mdx';
+import AuctionsCountingDownResult from './queries/auctionsCountingDown/result.mdx';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'Query', value: 'query'},
+    {label: 'Result', value: 'result'},
+  ]}>
+  <TabItem value="query"><AuctionsCountingDownQuery/></TabItem>
+  <TabItem value="result"><AuctionsCountingDownResult/></TabItem>
+</Tabs>
+
+
+## NFTs and their auctions by a specific creator
+
+import NFTsAndAuctionsCountingDownQuery from './queries/nftsAndAuctionsByCreator/query.mdx';
+import NFTsAndAuctionsCountingDownResult from './queries/nftsAndAuctionsByCreator/result.mdx';
+
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'Query', value: 'query'},
+    {label: 'Result', value: 'result'},
+  ]}>
+  <TabItem value="query"><NFTsAndAuctionsCountingDownQuery/></TabItem>
+  <TabItem value="result"><NFTsAndAuctionsCountingDownResult/></TabItem>
+</Tabs>
