@@ -1,0 +1,13 @@
+```graphql
+query getAuctionsWithoutABid {
+    nftMarketAuctions(
+      where: {status: Open, highestBid: null}
+    ) {
+    nft {
+      tokenId
+      tokenIPFSPath
+    }
+    reservePriceInETH
+  }
+}
+```
