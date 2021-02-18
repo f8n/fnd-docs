@@ -5,6 +5,9 @@ sidebar_label: Subgraphs
 slug: /subgraphs
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 All of the data from the Foundation protocol is public and free to use.
 
 You can build your own UI with whatever features you would like using the same data.
@@ -21,32 +24,19 @@ Our goerli subgraph points to the Goerli testnet - the data you'll find there co
 
 Here's an example query using the Foundation subgraph:
 
-#### Query
-```graphql
-{
-  nfts(where: {tokenId: "1" }) {
-    owner {
-      id
-    }
-  }
-}
-```
+import ExampleQuery from './queries/example/query.mdx';
+import ExampleResult from './queries/example/result.mdx';
 
-#### Result
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'Query', value: 'query'},
+    {label: 'Result', value: 'result'},
+  ]}>
+  <TabItem value="query"><ExampleQuery/></TabItem>
+  <TabItem value="result"><ExampleResult/></TabItem>
+</Tabs>
 
-```json
-{
-  "data": {
-    "nfts": [
-      {
-        "owner": {
-          "id": "0xcf0949bf6d2adf8032260fd08039c879cf71c128"
-        }
-      }
-    ]
-  }
-}
-```
 
 ## Table structure
 
@@ -142,143 +132,46 @@ When using Insomnia, you can `POST` a `GraphQL` request to `https://api.thegraph
 
 ### Auctions that have not received a bid
 
-#### Query
-```graphql
-query getAuctionsWithoutABid {
-    nftMarketAuctions(
-      where: {status: Open, highestBid: null}
-    ) {
-    nft {
-      tokenId
-      tokenIPFSPath
-    }
-    reservePriceInETH
-  }
-}
-```
+import AuctionsWithNoBidQuery from './queries/auctionsWithNoBid/query.mdx';
+import AuctionsWithNoBidResult from './queries/auctionsWithNoBid/result.mdx';
 
-#### Result
-
-```json
-{
-  "data": {
-    "nftMarketAuctions": [
-      {
-        "nft": {
-          "tokenIPFSPath": "Qmc3AhjGiqVdbw69MxMLQXb7Wcdjmkaeqz4NcZzWbmvxBo/metadata.json",
-          "tokenId": "113"
-        },
-        "reservePriceInETH": "1"
-      },
-      {
-        "nft": {
-          "tokenIPFSPath": "QmWJkAhWwYnJ6yupJFobYKEMneZr1iR8UvMzQ1HpN1ygG9/metadata.json",
-          "tokenId": "114"
-        },
-        "reservePriceInETH": "0.2"
-      },
-      // ...
-    ]
-  }
-}
-```
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'Query', value: 'query'},
+    {label: 'Result', value: 'result'},
+  ]}>
+  <TabItem value="query"><AuctionsWithNoBidQuery/></TabItem>
+  <TabItem value="result"><AuctionsWithNoBidResult/></TabItem>
+</Tabs>
 
 ### Auctions that are currently counting down
 
-#### Query
+import AuctionsCountingDownQuery from './queries/auctionsCountingDown/query.mdx';
+import AuctionsCountingDownResult from './queries/auctionsCountingDown/result.mdx';
 
-```graphql
-query getAuctionsInProgress($nowInSeconds: BigInt!) {
-    nftMarketAuctions(
-      where: {status: Open, dateEnding_lt: $nowInSeconds}
-    ) {
-    nft {
-      tokenId
-      tokenIPFSPath
-    }
-    reservePriceInETH
-  }
-}
-```
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'Query', value: 'query'},
+    {label: 'Result', value: 'result'},
+  ]}>
+  <TabItem value="query"><AuctionsCountingDownQuery/></TabItem>
+  <TabItem value="result"><AuctionsCountingDownResult/></TabItem>
+</Tabs>
 
-#### Result
-
-```json
-{
-  "data": {
-    "nftMarketAuctions": [
-      {
-        "nft": {
-          "tokenIPFSPath": "QmSBo9HxsRKHmQGQ71uCJithwY8JWULUfUveYnH1gDW8ft/metadata.json",
-          "tokenId": "118"
-        },
-        "reservePriceInETH": "0.5"
-      },
-      {
-        "nft": {
-          "tokenIPFSPath": "QmVpQHP1Csq5J7fhvGyC559kSCnCiV2f1RoUAgdr5z3bCo/metadata.json",
-          "tokenId": "165"
-        },
-        "reservePriceInETH": "0.37"
-      },
-      // ...
-    ]
-  }
-}
-```
 
 ### NFTs and their auctions by a specific creator
 
-#### Query
+import NFTsAndAuctionsCountingDownQuery from './queries/nftsAndAuctionsByCreator/query.mdx';
+import NFTsAndAuctionsCountingDownResult from './queries/nftsAndAuctionsByCreator/result.mdx';
 
-```graphql
-query getNftsByCreator($creator: String!) {
-  creator(id: $creator) {
-    nfts {
-      tokenId
-      mostRecentAuction {
-        status
-        dateEnding
-        reservePriceInETH
-        highestBid {
-          amountInETH
-        }
-      }
-    }
-  }
-}
-```
-
-#### Result
-
-```json
-{
-  "data": {
-    "creator": {
-      "nfts": [
-        {
-          "mostRecentAuction": {
-            "dateEnding": "1612462892",
-            "highestBid": {
-              "amountInETH": "0.5"
-            },
-            "reservePriceInETH": "0.37305",
-            "status": "Finalized"
-          },
-          "tokenId": "11"
-        },
-        {
-          "mostRecentAuction": {
-            "dateEnding": null,
-            "highestBid": null,
-            "reservePriceInETH": "1",
-            "status": "Open"
-          },
-          "tokenId": "120"
-        },
-        // ...
-      ]
-    }
-  }
-}
-```
+<Tabs
+  defaultValue="query"
+  values={[
+    {label: 'Query', value: 'query'},
+    {label: 'Result', value: 'result'},
+  ]}>
+  <TabItem value="query"><NFTsAndAuctionsCountingDownQuery/></TabItem>
+  <TabItem value="result"><NFTsAndAuctionsCountingDownResult/></TabItem>
+</Tabs>

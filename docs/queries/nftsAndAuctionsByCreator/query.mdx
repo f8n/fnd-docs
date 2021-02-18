@@ -1,0 +1,17 @@
+```graphql
+query getNftsByCreator($creator: String!) {
+  creator(id: $creator) {
+    nfts {
+      tokenId
+      mostRecentAuction {
+        status
+        dateEnding
+        reservePriceInETH
+        highestBid {
+          amountInETH
+        }
+      }
+    }
+  }
+}
+```

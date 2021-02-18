@@ -1,0 +1,13 @@
+```graphql
+query getAuctionsInProgress($nowInSeconds: BigInt!) {
+    nftMarketAuctions(
+      where: {status: Open, dateEnding_lt: $nowInSeconds}
+    ) {
+    nft {
+      tokenId
+      tokenIPFSPath
+    }
+    reservePriceInETH
+  }
+}
+```
