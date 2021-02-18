@@ -1,5 +1,5 @@
 module.exports = {
   someSidebar: {
-    Foundation: ['intro', 'subgraphs', 'contracts', 'fnd.js', 'nfte', 'community-proposals'],
+    Foundation: ['intro', 'subgraphs', 'subgraphs-examples', 'contracts', 'fnd.js', 'nfte', 'community-proposals'],
   },
 };

@@ -7,7 +7,11 @@ slug: /contracts
 
 Verification coming soon. Open sourcing coming soon.
 
-### NFT
+### **NFT**
+
+```
+0x3B3ee1931Dc30C1957379FAc9aba94D1C48a5405
+```
 
 Here's a link to the [Foundation NFT contract](https://etherscan.io/token/0x3B3ee1931Dc30C1957379FAc9aba94D1C48a5405) on Etherscan.
 
@@ -15,7 +19,11 @@ Our contract implements the ERC721 standard. More info [here](https://ethereum.o
 
 Our NFT contract also includes an extra method that lets you (a person, a bot, or a contract) get the creator of the NFT. This means that the creators can be paid automatically when sales are made using the Foundation market contract.
 
-### Market
+### **Market**
+
+```
+0xcDA72070E455bb31C7690a170224Ce43623d0B6f
+```
 
 Here's a link to the [Foundation market contract](https://etherscan.io/address/0xcDA72070E455bb31C7690a170224Ce43623d0B6f) on Etherscan.
 
