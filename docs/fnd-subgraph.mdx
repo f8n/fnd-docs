@@ -1,8 +1,8 @@
 ---
-id: subgraphs
-title: Subgraphs
-sidebar_label: Subgraphs
-slug: /subgraphs
+id: fnd-subgraph
+title: FND Subgraph
+sidebar_label: FND Subgraph
+slug: /fnd-subgraph
 ---
 
 import Tabs from '@theme/Tabs';
@@ -11,6 +11,10 @@ import TabItem from '@theme/TabItem';
 All of the data from the Foundation protocol is public and free to use.
 
 You can build your own UI with whatever features you would like using the same data.
+
+There are "subgraphs" for Foundation data on the Ethereum mainnet and the Goerli testnet.
+
+These were built using [The Graph](https://thegraph.com/). The Graph uses [GraphQL](https://graphql.org/), a query language for data.
 
 ### 🌐 [mainnet subgraph](https://thegraph.com/explorer/subgraph/f8n/fnd) 🌐
 
@@ -37,10 +41,8 @@ import ExampleResult from './queries/example/result.mdx';
   <TabItem value="result"><ExampleResult/></TabItem>
 </Tabs>
 
-## Note
-
-:::note
-If you learn best by checking out examples, we recommend jumping ahead to the [examples](subgraphs-examples) section. If you learn better by starting with the fundamentals and building from there, please read on below.
+:::tip
+If you learn best by checking out examples, we recommend jumping ahead to the [examples](subgraph-examples) section. If you learn better by starting with the fundamentals and building from there, please read on below.
 :::
 
 ## Table structure
@@ -119,12 +121,19 @@ All individual bids placed on Foundation.
 
 Currently the only auction model we support is Reserve Auctions. More will be added in the future.
 
-When an NFT is initially listed, it's state in the Foundation subgraph will be `nftMarketAuction.status=Open` with `nftMarketAuction.highestBid=null`.
+### Initially listed
 
+When an NFT is initially listed, its state in the Foundation subgraph will be `nftMarketAuction.status=Open` with `nftMarketAuction.highestBid=null`.
+
+### Reserve price met
 Once the reserve price is met, `nftMarketAuction.highestBid!=null`.
 
+### End time
 Anyone can place bids on auctions until the end time has passed. So `nftMarketAuction.status=Open and nftMarketAuction.dateEnding<=nowInSeconds` means an auction is accepting bids and `nftMarketAuction.status=Open and nftMarketAuction.dateEnding>nowInSeconds` indicates that the auction countdown has completed and bids are no longer being accepted.
 
+Note that the end time for an auction may change, because placing a bit in the last 15 minutes resets the remaining time to 15 minutes to prevent sniping.
+
+### NFT claimed
 Since Ethereum requires a user-initiated transaction in order to react to the changing of time, users must claim their NFT after an auction has closed. Technically anyone can do this, but through the foundation.app UI we encourage the bidder to do so (and the foundation.app UI will allow sellers to complete the process as well). But it's on Ethereum, so anyone is free to do it if they please.
 
 Once the NFT has been claimed, the auction status changes to `nftMarketAuction.status=Finalized`. `Finalized` indicates that the NFT has been transferred to the auction winner and the seller has received funds from the sale.
