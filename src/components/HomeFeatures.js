@@ -14,7 +14,7 @@ const features = [
         accessible via a GraphQL API.
       </>
     ),
-    linkUrl: "docs/subgraphs",
+    linkUrl: "docs/fnd-subgraph",
   },
   {
     title: "contracts",
