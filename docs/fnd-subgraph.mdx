@@ -129,7 +129,7 @@ When an NFT is initially listed, its state in the Foundation subgraph will be `n
 Once the reserve price is met, `nftMarketAuction.highestBid!=null`.
 
 ### End time
-Anyone can place bids on auctions until the end time has passed. So `nftMarketAuction.status=Open and nftMarketAuction.dateEnding<nowInSeconds` means an auction is accepting bids and `nftMarketAuction.status=Open and nftMarketAuction.dateEnding>=nowInSeconds` indicates that the auction countdown has completed and bids are no longer being accepted.
+Anyone can place bids on auctions until the end time has passed. So `nftMarketAuction.status=Open and nftMarketAuction.dateEnding>nowInSeconds` means an auction is accepting bids and `nftMarketAuction.status=Open and nftMarketAuction.dateEnding<=nowInSeconds` indicates that the auction countdown has completed and bids are no longer being accepted.
 
 Note that the end time for an auction may change, because placing a bit in the last 15 minutes resets the remaining time to 15 minutes to prevent sniping.
 
