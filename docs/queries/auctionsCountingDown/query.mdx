@@ -1,7 +1,7 @@
 ```graphql
 query getAuctionsInProgress($nowInSeconds: BigInt!) {
     nftMarketAuctions(
-      where: {status: Open, dateEnding_lt: $nowInSeconds}
+      where: {status: Open, dateEnding_gt: $nowInSeconds}
     ) {
     nft {
       tokenId
