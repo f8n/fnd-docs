@@ -13,8 +13,7 @@ export default function HomeHero() {
       </Heading>
       <Grid gap={[32, null, 48]}>
         <Text sx={{ maxWidth: 500 }}>
-          Help us build a new creative economy on the Ethereum network. The
-          infrastructure is open, permissionless, and transparent.
+        Our Ethereum infrastructure is open, permissionless, and transparent because our future is collective.
         </Text>
         <Box>
           <Link to={useBaseUrl("/docs")}>
