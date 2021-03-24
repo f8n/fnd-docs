@@ -3,7 +3,7 @@ const path = require("path");
 module.exports = {
   title: "Foundation",
   tagline:
-    "Help us build a new creative economy on the Ethereum network. The infrastructure is open, permissionless, and transparent.",
+    "Our Ethereum infrastructure is open, permissionless, and transparent because our future is collective.",
   url: "https://fnd.dev",
   baseUrl: "/",
   onBrokenLinks: "throw",

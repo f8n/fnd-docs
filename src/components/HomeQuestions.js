@@ -1,5 +1,7 @@
 /** @jsx jsx */
-import { jsx, Box, Heading, Text, Grid } from "theme-ui";
+import { jsx, Box, Heading, Text, Grid, Button } from "theme-ui";
+import Link from "@docusaurus/Link";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import ExternalLink from "./ExternalLink";
 
 export default function HomeQuestions() {
@@ -11,12 +13,9 @@ export default function HomeQuestions() {
           If you’re looking to build something on Foundation, make sure you join
           the Discord and check out the devs section.
         </Text>
-        <ExternalLink
-          href="https://discord.foundation.app/"
-          sx={{ color: "#54BCFB" }}
-        >
-          discord ↗
-        </ExternalLink>
+        <Link to="https://discord.foundation.app/">
+          <Button sx={{ width: ["100%", null, "auto"] }}>discord</Button>
+        </Link>
       </Grid>
     </Box>
   );
