@@ -16,8 +16,8 @@ const projects = [
     description:
       "Showcase your Foundation NFTs alongside other NFT collections.",
     imageUrl: "/img/showtime.jpg",
-    externalUrl: "https://alpha.tryshowtime.com/c/fnd",
-    label: "alpha.tryshowtime.com ↗",
+    externalUrl: "https://tryshowtime.com/c/fnd",
+    label: "tryshowtime.com ↗",
   },
   {
     title: "NFTE",
