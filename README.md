@@ -1,3 +1,5 @@
+![FND Github-Docs](https://user-images.githubusercontent.com/14855515/161173790-970fe580-fe58-4a6d-8934-2d501e2b1299.png)
+
 # Website
 
 This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
